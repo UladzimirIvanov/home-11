@@ -9,9 +9,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите вашу строку:");
         //String userLine = scanner.nextLine();
-        char[] userWords = scanner.nextLine().toCharArray();
+        char[] userLetter = scanner.nextLine().toCharArray();
 
-        for (char c : userWords) {
+        for (char c : userLetter) {
             System.out.print(c + "" + c);
         }
     }

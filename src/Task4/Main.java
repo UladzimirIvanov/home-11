@@ -35,7 +35,7 @@ public class Main {
                         break;
                     }
                 }
-                if (compare == false){
+                if (compare == false) {
                     System.out.println("В строке " + "\"" + arrayUserLine[i] + "\"" + " в слове " + "\"" + arrayUserWordsInFirstLine[j] + "\"" + " нет повторяющихся символов");
                     return;
                 }
@@ -43,12 +43,3 @@ public class Main {
         }
     }
 }
-
-
-/*
-if (arrSymbols[j] == arrSymbols[k]){
-compare = true;
-        break;
-        }else {
-        System.out.println("bad i = " + arrSymbols[j] + " and j = " + arrSymbols[k]);
-                    }*/
