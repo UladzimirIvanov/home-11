@@ -13,27 +13,36 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         boolean result = false;
+        ;
 
         System.out.println("Введите вашу строку:");
         String userLine = scanner.nextLine();
         System.out.println("Укажите цифрой слово, которое необходимо проверить:");
-        int userChoice = scanner.nextInt();
-
 
         String[] lineWords = userLine.split(" ");
 
-
-        char[] oneWord = lineWords[userChoice - 1].toCharArray();
-        for (int i = 0, j = oneWord.length - 1; i < oneWord.length / 2 && j >= oneWord.length / 2; i++, j--) {
-            if (oneWord[i] != oneWord[j]){
-                System.out.println("Слово " + lineWords[userChoice - 1] + " не является палиндромом");
-                return;
+        //Проверка на входные данные
+        while (scanner.hasNextInt()) {
+            int userChoice = scanner.nextInt();
+            if ((userChoice <= 0) || (userChoice > lineWords.length)) {
+                System.out.println("Введены некорректные данные, попробуйте ещё");
             } else {
-                result = true;
+                //Слово выбранное пользователем разбивается на символы
+                char[] oneWord = lineWords[userChoice - 1].toCharArray();
+                //Сравнение первого и последнего символа, второго и предпоследнего и тд
+                for (int i = 0, j = oneWord.length - 1; i < oneWord.length / 2 && j >= oneWord.length / 2; i++, j--) {
+                    if (oneWord[i] != oneWord[j]) {
+                        System.out.println("Слово " + lineWords[userChoice - 1] + " не является палиндромом");
+                        return;
+                    } else {
+                        result = true;
+                    }
+                }
+                if (result == true) {
+                    System.out.println("Слово " + lineWords[userChoice - 1] + " палиндром");
+                }
             }
         }
-        if (result == true){
-            System.out.println("Слово " + lineWords[userChoice - 1] + " палиндром");
-        }
+        System.out.println("Введены некорректные данные, попробуйте снова");
     }
 }
